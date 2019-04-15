@@ -1,10 +1,9 @@
 import React from 'react';
 import FeatureList from './FeatureList'
 
-function Features(props){
+export default function Features(props){
 
-return (
-
+return(
     <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             <FeatureList 
@@ -15,4 +14,3 @@ return (
           </section>
     )
 }
-export default Features;
