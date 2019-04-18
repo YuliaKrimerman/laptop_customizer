@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Features from './Features';
-import Cart from './Cart';
+import HeadingBar from './Heading';
+import MainForm from './MainForm';
+import MainSummary from './MainSummary';
 
 class App extends Component {
   constructor(props){
@@ -28,7 +29,7 @@ class App extends Component {
     }
   }
 
-  updateFeature(feature, newValue) {
+  updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -37,17 +38,19 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
+        <HeadingBar />
         <main>
-            <Features
-        features={this.props.features}
-        handleUpdate={(feature, newValue) => this.updateFeature(feature, newValue)}
-        selected ={this.state.selected}
-/>
-        <Cart 
-            selected={this.state.selected}
-            />
+          <MainForm 
+            features={this.props.features} 
+            selected={this.state.selected} 
+            handleUpdate={this.updateFeature} 
+          />
+          <MainSummary 
+            selected={this.state.selected} 
+          />
         </main>
       </div>
     );
